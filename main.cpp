@@ -16,7 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* 
+/*
  * File:   main.cpp
  * Author: phoni
  *
@@ -26,18 +26,26 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-
 #include "crypto.h"
 
 /*
- * 
+ *
  */
 int main(int argc, char** argv) {
-    
+
 //    std::string testString = "ADDADD";
     std::string testString = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
-    
-    std::cout << crypto::binString2Base64String(crypto::hexString2BinString(testString)) << std::endl;
+
+//    std::cout << crypto::binString2Base64String(crypto::hexString2BinString(testString)) << std::endl;
+    try
+    {
+        char a = 'h';
+        crypto::hexChar2BinCharArr(a);
+        std::cout << a << std::endl;
+    } catch (std::exception& e)
+    {
+        std::cout << "caught exception! " << e.what() << std::endl;
+    }
+//    std::cout << crypto::hexChar2BinCharArr('A') << std::endl;
     return 0;
 }
-

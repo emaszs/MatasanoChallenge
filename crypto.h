@@ -37,8 +37,7 @@ namespace crypto
     std::string hexString2BinString(std::string input);
     std::string binString2Base64String(std::string input);
     char int2Base64Char(int input);
+    std::string hexString2Base64(std::string input);
 }
 
 #endif /* CRYPTO_H */
-
-
