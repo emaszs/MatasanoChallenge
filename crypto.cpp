@@ -87,6 +87,28 @@ namespace crypto
         int blockIndex;
         int bit;
 
+
+        // TODO input length has to be even
+
+        // I'm assuming this function will only take binary input from ASCII
+        // data and these chars are represented in binary in the code below
+        int addedChars = 0;
+
+        if (input.length() % 24 != 0)
+        {
+            if (input.length() % 24 == 8)
+            {
+                input += "0000000000000000";
+
+                addedChars = 2;
+            } else if (input.length() % 24 == 16)
+            {
+                input += "00000000";
+                addedChars = 1;
+            }
+
+        }
+
         for (int i = 0; i < input.length(); i++)
         {
             bit = input[i] - 48;
@@ -108,6 +130,16 @@ namespace crypto
 
         // Add the last character which wasn't done in the for loop
         ret += int2Base64Char(b64Val);
+
+        if (addedChars == 1)
+        {
+            ret.replace(ret.length() - 1, ret.length(), "=");
+        } else if (addedChars == 2)
+        {
+            ret.replace(ret.length() - 2, ret.length(), "==");
+        }
+
+
         return ret;
     }
 

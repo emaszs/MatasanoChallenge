@@ -34,14 +34,14 @@
 int main(int argc, char** argv) {
 
 //    std::string testString = "ADDADD";
-    std::string testString = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
+//    std::string testString = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
+    std::string testString = "1234567764";
 
-//    std::cout << crypto::binString2Base64String(crypto::hexString2BinString(testString)) << std::endl;
+
     try
     {
-        char a = 'h';
-        crypto::hexChar2BinCharArr(a);
-        std::cout << a << std::endl;
+
+        std::cout << crypto::binString2Base64String(crypto::hexString2BinString(testString)) << std::endl;
     } catch (std::exception& e)
     {
         std::cout << "caught exception! " << e.what() << std::endl;
